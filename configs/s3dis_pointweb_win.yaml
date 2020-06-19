@@ -1,0 +1,44 @@
+GLOBAL:
+  data_root: F:\DATASET\trainval_fullarea
+  train_list: F:\DATASET\trainval_fullarea\train12346_full.txt
+  val_list: F:\DATASET\trainval_fullarea\val5_full.txt
+  log_dir: ./log
+  classes: 13
+  manual_seed: 233
+  save_path:
+  train_gpu: [0]
+  sync_bn: None  # adopt sync_bn or not set none for win
+  arch: pointweb_seg # architecture
+  use_xyz: True
+  weight:  # path to initial weight (default: none)
+  train_batch_size: 16
+  train_works: 1
+
+CRITERION:
+  ignore_label:
+
+OPTIMIZER:
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0001
+
+SCHEDULER:
+  TYPE: "StepLR"
+  INIT_EPOCH: 0
+  MAX_EPOCH: 16
+  StepLR:
+    gamma: 0.9
+    step_size: 2
+
+CHECKPOINT:
+  resume:  # path to latest checkpoint (default: none)
+  start_epoch: 0
+
+S3DIS:
+  train_full_folder:
+  num_point: 4096
+  test_area: 5
+  block_size: 1.0
+  sample_rate: 0.01
+  fea_dim:  6 # dimention of feature
+  classes: 15

@@ -1,0 +1,38 @@
+GLOBAL:
+  TRAIN:
+    ROOT_DIR: ""
+    WEIGHT: "" #F:\PythonCode\ModelZoo-2D\log\train_06_15_09_37_init_train\model_004.pth
+    BATCH_SIZE: 64
+    CHECKPOINT_PERIOD: 4
+    LOG_PERIOD: 50
+  VAL:
+    ROOT_DIR: "/workspace/PointMVSNet/data/DTUTraining_MVS_Origin_20G/"
+    VAL_PERIOD: 0
+  TEST:
+    ROOT_DIR: "/workspace/data/DTUTest_MVS/"
+    WEIGHT: "/workspace/PointMVSNet/outputs/dtu_wde3/train_01_06_22_38_21/model_016.pth"
+    BATCH_SIZE: 8
+  OUTPUT_DIR: ./log
+  INPUT_SIZE: 784
+  NUM_WORKERS: 4
+  MAX_EPOCH: 16
+  CLASSES: 10
+  TRAIN_GPU: [0,1,2,3]
+  MODEL: ResNet18
+  DATASET: CIFAR10
+
+OPTIM:
+  TYPE: 'RMSprop'
+  BASE_LR: 0.0005
+  WEIGHT_DECAY: 0.001
+SCHEDULER:
+  TYPE: "StepLR"
+  StepLR:
+    gamma: 0.9
+    step_size: 2
+
+
+
+
+
+
